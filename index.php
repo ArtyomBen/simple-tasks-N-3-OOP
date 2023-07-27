@@ -3,8 +3,8 @@
 //1
 
 class Rectangle {
-    protected $length;
-    protected $width;
+    private $length;
+    private $width;
     public function __construct($length, $width)
     {
         $this -> length = $length;
@@ -17,13 +17,10 @@ class Rectangle {
 
 }
 class Square extends Rectangle {
-    public $sq;
     public function __construct($sq)
     {
-        $this -> length = $sq;
-        $this -> width = $sq;
+        parent::__construct ($sq, $sq);
     }
-
 }
 
 $rec = new Rectangle(5, 4);
@@ -56,8 +53,7 @@ class Viewer extends User {
     }
 }
 $obj = new Admin ();
-$obj -> set_username('Balthazar');
-echo '<br>' . $obj -> get_username();
+echo '<br>' . $obj -> stateYourRole();
 
 
 //3
@@ -90,3 +86,5 @@ echo '<br>' . $obj -> get_username();
 // $editor1 -> setNumberOfArticles(15);
 // echo 'author= ' . $author1 -> calcScores() . '<br>';
 // echo 'editor= ' . $editor1 -> calcScores();
+
+
